@@ -1,0 +1,96 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="container">
+        <h2>Employee Details</h2>
+    </div>
+    <div class="container">
+        <FORM NAME="myform" id="form" ACTION="" METHOD="GET">
+            <div class="form-group">
+                <label>Employee Name</label>
+                <INPUT TYPE="text" id="name" NAME="name" VALUE="" required />
+            </div>
+            <div class="form-group">
+                <label>Spouse</label>
+                <input type="checkbox" id="spouse">
+            </div>
+            <div class="form-group">
+                <label for="child">Select number of Child:</label>
+                <INPUT TYPE="number" id="children" NAME="children" VALUE="" />
+            </div>
+            <div class="form-group">
+                <INPUT TYPE="submit" Value="Submit" class="btn btn-primary">
+            </div>
+
+            <div class="form-group">
+                <input type="button" onclick="disableTable()" value="Remove All Employees" class="btn" />
+            </div>
+            <div class="form-group">
+                <input type="button" onclick="enableTable()" value="Get All Employees" class="btn" />
+            </div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Create New Employee</button>
+            <br />
+        </FORM>
+    </div>
+</div>
+<div class="container">
+    <div class="container">
+        <label>Employee Name: </label>
+        <span id="empName"></span>
+        <br />
+        <label>Per pay check Amount:</label>
+        <span id="PerPayCheck"></span>
+        <br />
+        <label>Total deductable Amount:</label>
+        <span id="totalDeductedAmount"></span>
+        <br />
+        <label>Per pay check amount after deduction:</label>
+        <span id="PerpaydeductableSalary"></span>
+        <br />
+        <label>Annual Salary after deduction:</label>
+        <span id="totalAnualSalary"></span>
+    </div>
+</div>
+<table id="tblStudent" class="table table-bordered table-striped table-responsive table-hover">
+    <thead>
+        <tr>
+            <th align="left" class="productth">Id</th>
+            <th align="left" class="productth">Employee Name</th>
+            <th align="left" class="productth">Email</th>
+            <th align="left" class="productth">Phone</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Employee Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="createEmployeeForm">
+                    <div class="form-group">
+                        <label class="col-form-label">Employee Name:</label>
+                        <input type="text" class="form-control" id="employee-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Email:</label>
+                        <input type="email" class="form-control" id="email"></input>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Phone:</label>
+                        <input type="number" class="form-control" id="phone">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="create" onclick="createEmployee()" class="btn btn-primary">Create</button>
+            </div>
+        </div>
+    </div>
+</div>
